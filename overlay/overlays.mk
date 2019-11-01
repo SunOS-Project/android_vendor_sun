@@ -7,4 +7,5 @@
 # Overlays
 PRODUCT_PACKAGES += \
     SUNFrameworksOverlay \
-    SUNSystemUIOverlay
+    SUNSystemUIOverlay \
+    SUNLauncherOverlay
