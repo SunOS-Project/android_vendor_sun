@@ -1,3 +1,6 @@
+# Include definitions for Snapdragon Clang
+$(call inherit-product, vendor/qcom/sdclang/config/SnapdragonClang.mk)
+
 ifeq ($(SUN_BUILD_TYPE),Official)
 PRODUCT_PACKAGES += \
     Updater
