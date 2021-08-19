@@ -23,3 +23,7 @@ endif
 # Preinstalled Packages
 PRODUCT_COPY_FILES += \
     vendor/sun/prebuilt/config/preinstalled-packages-sun.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-sun.xml
+
+# Theme Picker
+PRODUCT_PACKAGES += \
+    ParanoidThemePicker
