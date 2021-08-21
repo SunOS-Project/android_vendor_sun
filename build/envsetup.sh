@@ -921,3 +921,20 @@ function fixup_common_out_dir() {
         mkdir -p ${common_out_dir}
     fi
 }
+
+function clodiff()
+{
+    target_branch=$1
+    set_stuff_for_environment
+    T=$(gettop)
+    python3 $T/vendor/sun/build/tools/diff-clo.py $target_branch
+}
+
+function clomerge()
+{
+    target_branch=$1
+    set_stuff_for_environment
+    T=$(gettop)
+    python3 $T/vendor/sun/build/tools/merge-caf.py $target_branch
+    python3 $T/vendor/sun/build/tools/merge-clo.py $target_branch
+}
