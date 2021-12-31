@@ -8,12 +8,6 @@
 -->
 <resources>
 
-    <!-- System-provided radius for the background view of app widgets. The resolved value of this resource may change at runtime. -->
-    <dimen name="system_app_widget_background_radius">28dip</dimen>
-
-    <!-- System-provided radius for inner views on app widgets. The resolved value of this resource may change at runtime. -->
-    <dimen name="system_app_widget_inner_radius">20dip</dimen>
-
     <!-- The default height of the status bar used in {@link SystemBarUtils#getStatusBarHeight} to
          calculate the status bar height. -->
     <dimen name="status_bar_height_default">28dp</dimen>
