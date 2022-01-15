@@ -49,3 +49,6 @@ PRODUCT_PACKAGES += \
     IconPackRoundedSettingsOverlay \
     IconPackRoundedSystemUIOverlay \
     IconPackRoundedThemePickerOverlay
+
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/sun/overlay/static
+PRODUCT_PACKAGE_OVERLAYS += vendor/sun/overlay/static
