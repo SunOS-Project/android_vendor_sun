@@ -12,6 +12,10 @@ $(call inherit-product, vendor/google/pixel/config.mk)
 # Don't dexpreopt prebuilts. (For GMS).
 DONT_DEXPREOPT_PREBUILTS := true
 
+# Camera
+PRODUCT_PACKAGES += \
+    GoogleCameraGo
+
 ifeq ($(SUN_BUILD_TYPE),Official)
 PRODUCT_PACKAGES += \
     Updater
