@@ -1,6 +1,9 @@
 # Sun makefiles
 $(call inherit-product, vendor/sun/config/sun.mk)
 
+# Include Overlay makefile
+$(call inherit-product, vendor/sun/overlay/overlays.mk)
+
 PRODUCT_BRAND ?= SunOS
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
