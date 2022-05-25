@@ -10,4 +10,10 @@ PRODUCT_PACKAGES += \
     SUNSettingsOverlay \
     SUNSettingsProviderOverlay \
     SUNSystemUIOverlay \
-    SUNLauncherOverlay
+    SUNLauncherOverlay \
+    FontGoogleSansLatoOverlay \
+    FontHarmonySansOverlay \
+    FontInterOverlay \
+    FontManropeOverlay \
+    FontRobotoOverlay \
+    FontUrbanistOverlay
