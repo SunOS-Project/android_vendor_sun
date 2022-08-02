@@ -12,6 +12,7 @@ PRODUCT_PACKAGES += \
     SUNSettingsProviderOverlay \
     SUNSystemUIOverlay \
     SUNLauncherOverlay \
+    FontDMSansOverlay \
     FontGoogleSansOverlay \
     FontHarmonySansOverlay \
     FontInterOverlay \
