@@ -4,6 +4,9 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 # Allow vendor prebuilt repos to exclude themselves from bp scanning
 -include $(sort $(wildcard vendor/*/*/exclude-bp.mk))
 
+# Bootanimation
+include vendor/lineage/config/bootanimation.mk
+
 # GMS
 include vendor/lineage/config/pixel.mk
 
