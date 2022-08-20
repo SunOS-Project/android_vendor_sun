@@ -7,6 +7,9 @@ PRODUCT_SOURCE_ROOT_DIRS += -kernel/platform
 # Allow vendor prebuilt repos to exclude themselves from bp scanning
 -include $(sort $(wildcard vendor/*/*/exclude-bp.mk))
 
+# Bootanimation
+include vendor/lineage/config/bootanimation.mk
+
 # GMS
 include vendor/lineage/config/pixel.mk
 
