@@ -11,13 +11,12 @@ PRODUCT_PACKAGES += \
     SUNSettingsProviderOverlay \
     SUNSystemUIOverlay \
     SUNLauncherOverlay \
-    FontGoogleSansLatoOverlay \
+    FontGoogleSansOverlay \
     FontHarmonySansOverlay \
     FontInterOverlay \
     FontManropeOverlay \
     FontOneplusSansOverlay \
     FontOppoSansOverlay \
-    FontRobotoOverlay \
     FontUrbanistOverlay \
     IconPackCircularAndroidOverlay \
     IconPackCircularLauncherOverlay \
