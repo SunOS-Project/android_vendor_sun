@@ -109,6 +109,10 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,vendor/sun/prebuilt/fonts/,$(TARGET_COPY_OUT_PRODUCT)/fonts) \
     vendor/sun/prebuilt/config/fonts_customization.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/fonts_customization.xml
 
+# Permissions
+PRODUCT_COPY_FILES += \
+    vendor/sun/prebuilt/config/permissions/default_permissions_com.google.android.deskclock.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default_permissions_com.google.android.deskclock.xml
+
 # Openssh
 PRODUCT_PACKAGES += \
     scp \
