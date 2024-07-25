@@ -5,3 +5,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/sun/prebuilt/common/etc/init/init.sun-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.sun-updater.rc
 endif
+
+# Preinstalled Packages
+PRODUCT_COPY_FILES += \
+    vendor/sun/prebuilt/config/preinstalled-packages-sun.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-sun.xml
