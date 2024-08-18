@@ -10,6 +10,9 @@ include vendor/lineage/config/bootanimation.mk
 # GMS
 include vendor/lineage/config/pixel.mk
 
+# Don't dexpreopt prebuilts. (For GMS).
+DONT_DEXPREOPT_PREBUILTS := true
+
 PRODUCT_BRAND ?= SunOS
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
