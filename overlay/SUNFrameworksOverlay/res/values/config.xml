@@ -179,5 +179,8 @@
 
     <!-- Whether memory from app_info_settings is available or not. -->
     <bool name="config_show_app_info_settings_memory">true</bool>
-   
+
+    <!-- Default for BatterySaverPolicy.DEFAULT_FULL_POLICY.disableVibration -->
+    <bool name="config_batterySaver_full_disableVibration">true</bool>
+    
 </resources>
