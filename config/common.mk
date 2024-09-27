@@ -66,6 +66,9 @@ SYSTEMUI_OPTIMIZE_JAVA ?= true
 # Disable vendor restrictions
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
+# b/189477034: Bypass build time check on uses_libs until vendor fixes all their apps
+PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
+
 # Build Manifest
 PRODUCT_PACKAGES += \
     build-manifest
