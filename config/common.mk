@@ -142,6 +142,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/sun/prebuilt/config/permissions/default_permissions_com.google.android.deskclock.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default_permissions_com.google.android.deskclock.xml
 
+# NavigationBarMode
+PRODUCT_PACKAGES += \
+    NavigationBarMode2ButtonOverlay
+
 # Openssh
 PRODUCT_PACKAGES += \
     scp \
