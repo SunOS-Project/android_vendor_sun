@@ -182,5 +182,8 @@
 
     <!-- Default for BatterySaverPolicy.DEFAULT_FULL_POLICY.disableVibration -->
     <bool name="config_batterySaver_full_disableVibration">true</bool>
-    
+
+    <!-- Circle to search -->
+    <string name="config_defaultContextualSearchPackageName" translatable="false">com.google.android.googlequicksearchbox</string>
+
 </resources>
