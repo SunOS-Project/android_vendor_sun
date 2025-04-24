@@ -29,7 +29,6 @@ $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call addVar,$(v))))
 SOONG_CONFIG_NAMESPACES += sunGlobalVars
 SOONG_CONFIG_sunGlobalVars += \
     additional_gralloc_10_usage_bits \
-    bootloader_message_offset \
     camera_override_format_from_reserved \
 
 SOONG_CONFIG_NAMESPACES += sunQcomVars
@@ -47,14 +46,17 @@ SOONG_CONFIG_sunQcomVars_uses_oplus_camera := $(TARGET_USES_OPLUS_CAMERA)
 SOONG_CONFIG_sunQcomVars_supports_ltpo := $(TARGET_SUPPORTS_LTPO)
 
 # Set default values
-BOOTLOADER_MESSAGE_OFFSET ?= 0
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS ?= 0
 TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED ?= false
 
 # Soong value variables
 SOONG_CONFIG_sunGlobalVars_additional_gralloc_10_usage_bits := $(TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS)
-SOONG_CONFIG_sunGlobalVars_bootloader_message_offset := $(BOOTLOADER_MESSAGE_OFFSET)
 SOONG_CONFIG_sunQcomVars_uses_nothing_camera := $(TARGET_USES_NOTHING_CAMERA)
+
+# Recovery
+ifneq ($(BOOTLOADER_MESSAGE_OFFSET),)
+    $(call soong_config_set,sun_recovery,bootloader_message_offset,$(BOOTLOADER_MESSAGE_OFFSET))
+endif
 
 # Surfaceflinger
 ifneq ($(TARGET_SURFACEFLINGER_UDFPS_LIB),)
