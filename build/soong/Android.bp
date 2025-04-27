@@ -1,8 +1,8 @@
-// LineageOS soong configs
+// SunOS soong configs
 
 bootstrap_go_package {
-    name: "soong-lineage-generator",
-    pkgPath: "lineage/soong/generator",
+    name: "soong-sun-generator",
+    pkgPath: "sun/soong/generator",
     deps: [
         "blueprint",
         "blueprint-pathtools",
@@ -17,11 +17,11 @@ bootstrap_go_package {
     pluginFor: ["soong_build"],
 }
 
-lineage_generator {
+sun_generator {
     name: "generated_kernel_includes",
 
     // The headers make command
-    cmd: "$(PATH_OVERRIDE_SOONG) $(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(TARGET_KERNEL_SOURCE) O=$(KERNEL_BUILD_OUT_PREFIX)$(genDir) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) headers_install && vendor/lineage/tools/clean_headers.sh $(KERNEL_BUILD_OUT_PREFIX)$(genDir)",
+    cmd: "$(PATH_OVERRIDE_SOONG) $(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(TARGET_KERNEL_SOURCE) O=$(KERNEL_BUILD_OUT_PREFIX)$(genDir) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) headers_install && vendor/sun/tools/clean_headers.sh $(KERNEL_BUILD_OUT_PREFIX)$(genDir)",
 
     // Directories that can be imported by a cc_* module generated_headers property
     export_include_dirs: [
@@ -43,8 +43,8 @@ lineage_generator {
 }
 
 bootstrap_go_package {
-    name: "soong-lineage-mkdir",
-    pkgPath: "lineage/soong/mkdir",
+    name: "soong-sun-mkdir",
+    pkgPath: "sun/soong/mkdir",
     deps: [
         "blueprint",
         "blueprint-pathtools",
@@ -80,7 +80,7 @@ cc_library_headers {
 soong_config_module_type {
     name: "camera_override_format_from_reserved",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "sunGlobalVars",
     bool_variables: ["camera_override_format_from_reserved"],
     properties: ["cppflags"],
 }
@@ -97,7 +97,7 @@ camera_override_format_from_reserved {
 soong_config_module_type {
     name: "gralloc_10_usage_bits",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "sunGlobalVars",
     value_variables: ["additional_gralloc_10_usage_bits"],
     properties: ["cppflags"],
 }
@@ -114,7 +114,7 @@ gralloc_10_usage_bits {
 soong_config_module_type {
     name: "bootloader_message_offset",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "sunGlobalVars",
     value_variables: ["bootloader_message_offset"],
     properties: [
         "cflags",

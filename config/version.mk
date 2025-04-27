@@ -1,45 +1,24 @@
-PRODUCT_VERSION_MAJOR = 22
-PRODUCT_VERSION_MINOR = 2
+SUN_BUILD_TYPE ?= Unofficial
 
-ifeq ($(LINEAGE_VERSION_APPEND_TIME_OF_DAY),true)
-    LINEAGE_BUILD_DATE := $(shell date -u +%Y%m%d_%H%M%S)
-else
-    LINEAGE_BUILD_DATE := $(shell date -u +%Y%m%d)
-endif
+SUN_VERSION := varuna
 
-# Set LINEAGE_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
+SUN_DATE_YEAR := $(shell date -u +%Y)
+SUN_DATE_MONTH := $(shell date -u +%m)
+SUN_DATE_DAY := $(shell date -u +%d)
+SUN_DATE_HOUR := $(shell date -u +%H)
+SUN_DATE_MINUTE := $(shell date -u +%M)
 
-ifndef LINEAGE_BUILDTYPE
-    ifdef RELEASE_TYPE
-        # Starting with "LINEAGE_" is optional
-        RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^LINEAGE_||g')
-        LINEAGE_BUILDTYPE := $(RELEASE_TYPE)
-    endif
-endif
-
-# Filter out random types, so it'll reset to UNOFFICIAL
-ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(LINEAGE_BUILDTYPE)),)
-    LINEAGE_BUILDTYPE := UNOFFICIAL
-    LINEAGE_EXTRAVERSION :=
-endif
-
-ifeq ($(LINEAGE_BUILDTYPE), UNOFFICIAL)
-    ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
-        LINEAGE_EXTRAVERSION := -$(TARGET_UNOFFICIAL_BUILD_ID)
-    endif
-endif
-
-LINEAGE_VERSION_SUFFIX := $(LINEAGE_BUILD_DATE)-$(LINEAGE_BUILDTYPE)$(LINEAGE_EXTRAVERSION)-$(LINEAGE_BUILD)
-
-# Internal version
-LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(LINEAGE_VERSION_SUFFIX)
+SUN_BUILD_DATE_UTC := $(shell date -d '$(SUN_DATE_YEAR)-$(SUN_DATE_MONTH)-$(SUN_DATE_DAY) $(SUN_DATE_HOUR):$(SUN_DATE_MINUTE)' -u +%s)
 
 # Display version
-LINEAGE_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR)-$(LINEAGE_VERSION_SUFFIX)
+SUN_DISPLAY_VERSION := Sun-$(SUN_VERSION)-$(shell date +%Y%m%d)-$(SUN_BUILD)-$(SUN_BUILD_TYPE)
 
-# LineageOS version properties
-PRODUCT_SYSTEM_PROPERTIES += \
-    ro.lineage.version=$(LINEAGE_VERSION) \
-    ro.lineage.display.version=$(LINEAGE_DISPLAY_VERSION) \
-    ro.lineage.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
-    ro.lineage.releasetype=$(LINEAGE_BUILDTYPE)
+# Platform Display version
+SUN_PLATFORM_DISPLAY_VERSION := $(SUN_VERSION)-$(shell date +%Y%m%d)-$(SUN_BUILD)-$(SUN_BUILD_TYPE)
+
+# Sun version properties
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.sun.version=$(SUN_VERSION) \
+    ro.sun.version.display=$(SUN_DISPLAY_VERSION) \
+    ro.sun.platform.display.version=$(SUN_PLATFORM_DISPLAY_VERSION) \
+    ro.sun.build_date_utc=$(SUN_BUILD_DATE_UTC)
