@@ -1,0 +1,35 @@
+<?xml version="2.0" encoding="UTF-8"?>
+<!--
+     Copyright (C) 2022-2024 The Nameless-AOSP Project
+     Copyright (C) 2025 The SunOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<compatibility-matrix version="2.0" type="framework">
+    <!-- Battery -->
+    <hal format="aidl" optional="true">
+        <name>vendor.sun.hardware.battery</name>
+        <version>1</version>
+        <interface>
+            <name>IBattery</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <!-- DisplayFeature -->
+    <hal format="aidl" optional="true">
+        <name>vendor.sun.hardware.displayfeature</name>
+        <version>1</version>
+        <interface>
+            <name>IDisplayFeature</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <!-- VibratorExt -->
+    <hal format="aidl" optional="true">
+        <name>vendor.sun.hardware.vibratorExt</name>
+        <version>1</version>
+        <interface>
+            <name>IVibratorExt</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</compatibility-matrix>
