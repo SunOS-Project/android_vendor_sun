@@ -32,8 +32,16 @@ SOONG_CONFIG_sunGlobalVars += \
     bootloader_message_offset \
     camera_override_format_from_reserved \
 
+SOONG_CONFIG_NAMESPACES += sunQcomVars
+# Only create display_headers_namespace var if dealing with UM platforms to avoid breaking build for all other platforms
+ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
+SOONG_CONFIG_sunQcomVars += \
+    uses_oplus_camera
+endif
+
 # Soong bool variables
 SOONG_CONFIG_sunGlobalVars_camera_override_format_from_reserved := $(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED)
+SOONG_CONFIG_sunQcomVars_uses_oplus_camera := $(TARGET_USES_OPLUS_CAMERA)
 
 # Set default values
 BOOTLOADER_MESSAGE_OFFSET ?= 0
