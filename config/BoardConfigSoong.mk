@@ -37,12 +37,14 @@ SOONG_CONFIG_NAMESPACES += sunQcomVars
 ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
 SOONG_CONFIG_sunQcomVars += \
     uses_oplus_camera \
-    uses_nothing_camera
+    uses_nothing_camera \
+    supports_ltpo
 endif
 
 # Soong bool variables
 SOONG_CONFIG_sunGlobalVars_camera_override_format_from_reserved := $(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED)
 SOONG_CONFIG_sunQcomVars_uses_oplus_camera := $(TARGET_USES_OPLUS_CAMERA)
+SOONG_CONFIG_sunQcomVars_supports_ltpo := $(TARGET_SUPPORTS_LTPO)
 
 # Set default values
 BOOTLOADER_MESSAGE_OFFSET ?= 0

@@ -165,3 +165,20 @@ uses_nothing_camera {
         },
     },
 }
+
+soong_config_module_type {
+    name: "supports_ltpo",
+    module_type: "cc_defaults",
+    config_namespace: "sunQcomVars",
+    bool_variables: ["supports_ltpo"],
+    properties: ["cppflags"],
+}
+
+supports_ltpo {
+    name: "supports_ltpo_defaults",
+    soong_config_variables: {
+        supports_ltpo: {
+            cppflags: ["-DSUPPORTS_LTPO"],
+        },
+    },
+}
