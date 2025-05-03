@@ -19,6 +19,10 @@ DONT_DEXPREOPT_PREBUILTS := true
 PRODUCT_PACKAGES += \
     GoogleCameraGo
 
+# Contextual search
+PRODUCT_COPY_FILES += \
+    vendor/sun/prebuilt/config/contextual_search.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/contextual_search.xml
+
 ifeq ($(SUN_BUILD_TYPE),Official)
 PRODUCT_PACKAGES += \
     Updater
