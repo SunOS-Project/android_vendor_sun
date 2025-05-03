@@ -36,7 +36,8 @@ SOONG_CONFIG_NAMESPACES += sunQcomVars
 # Only create display_headers_namespace var if dealing with UM platforms to avoid breaking build for all other platforms
 ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
 SOONG_CONFIG_sunQcomVars += \
-    uses_oplus_camera
+    uses_oplus_camera \
+    uses_nothing_camera
 endif
 
 # Soong bool variables
@@ -51,6 +52,7 @@ TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED ?= false
 # Soong value variables
 SOONG_CONFIG_sunGlobalVars_additional_gralloc_10_usage_bits := $(TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS)
 SOONG_CONFIG_sunGlobalVars_bootloader_message_offset := $(BOOTLOADER_MESSAGE_OFFSET)
+SOONG_CONFIG_sunQcomVars_uses_nothing_camera := $(TARGET_USES_NOTHING_CAMERA)
 
 # Surfaceflinger
 ifneq ($(TARGET_SURFACEFLINGER_UDFPS_LIB),)
