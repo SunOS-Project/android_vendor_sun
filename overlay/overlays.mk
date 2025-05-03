@@ -6,6 +6,7 @@
 
 # Overlays
 PRODUCT_PACKAGES += \
+    AndroidBlackThemeOverlay \
     SUNFrameworksOverlay \
     SUNSettingsOverlay \
     SUNSettingsProviderOverlay \
