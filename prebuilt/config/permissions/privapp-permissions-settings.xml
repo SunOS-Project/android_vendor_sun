@@ -2,5 +2,6 @@
 <permissions>
     <privapp-permissions package="com.android.launcher3">
         <permission name="android.permission.ACCESS_CONTEXTUAL_SEARCH"/>
+        <permission name="android.permission.FORCE_STOP_PACKAGES"/>
     </privapp-permissions>
 </permissions>
