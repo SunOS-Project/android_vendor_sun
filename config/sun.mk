@@ -4,6 +4,9 @@ $(call inherit-product, device/qcom/common/common.mk)
 # Include definitions for Snapdragon Clang
 $(call inherit-product, vendor/qcom/sdclang/config/SnapdragonClang.mk)
 
+# Include Online Updatable configs
+$(call inherit-product, vendor/configs/online_updatable.mk)
+
 # Include GMS, Modules and Pixel features
 $(call inherit-product, vendor/google/gms/config.mk)
 $(call inherit-product-if-exists, vendor/google/modules/build/mainline_modules_s.mk)
@@ -40,3 +43,7 @@ PRODUCT_COPY_FILES += \
 # Theme Picker
 PRODUCT_PACKAGES += \
     ParanoidThemePicker
+
+# Online configs
+PRODUCT_COPY_FILES += \
+     vendor/sun/prebuilt/common/etc/init/init.sun-configs.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.sun-configs.rc
