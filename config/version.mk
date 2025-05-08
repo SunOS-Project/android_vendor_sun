@@ -18,6 +18,7 @@ SUN_PLATFORM_DISPLAY_VERSION := $(SUN_VERSION)-$(shell date +%Y%m%d)-$(SUN_BUILD
 
 # Sun version properties
 PRODUCT_PRODUCT_PROPERTIES += \
+    ro.sun.device=$(SUN_BUILD) \
     ro.sun.version=$(SUN_VERSION) \
     ro.sun.version.display=$(SUN_DISPLAY_VERSION) \
     ro.sun.platform.display.version=$(SUN_PLATFORM_DISPLAY_VERSION) \
