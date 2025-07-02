@@ -28,8 +28,7 @@ $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call addVar,$(v))))
 
 SOONG_CONFIG_NAMESPACES += sunGlobalVars
 SOONG_CONFIG_sunGlobalVars += \
-    additional_gralloc_10_usage_bits \
-    camera_override_format_from_reserved \
+    additional_gralloc_10_usage_bits
 
 SOONG_CONFIG_NAMESPACES += sunQcomVars
 # Only create display_headers_namespace var if dealing with UM platforms to avoid breaking build for all other platforms
@@ -41,17 +40,20 @@ SOONG_CONFIG_sunQcomVars += \
 endif
 
 # Soong bool variables
-SOONG_CONFIG_sunGlobalVars_camera_override_format_from_reserved := $(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED)
 SOONG_CONFIG_sunQcomVars_uses_oplus_camera := $(TARGET_USES_OPLUS_CAMERA)
 SOONG_CONFIG_sunQcomVars_supports_ltpo := $(TARGET_SUPPORTS_LTPO)
 
 # Set default values
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS ?= 0
-TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED ?= false
 
 # Soong value variables
 SOONG_CONFIG_sunGlobalVars_additional_gralloc_10_usage_bits := $(TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS)
 SOONG_CONFIG_sunQcomVars_uses_nothing_camera := $(TARGET_USES_NOTHING_CAMERA)
+
+# Camera
+ifneq ($(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED),)
+    $(call soong_config_set,camera,override_format_from_reserved,$(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED))
+endif
 
 # Recovery
 ifneq ($(BOOTLOADER_MESSAGE_OFFSET),)
