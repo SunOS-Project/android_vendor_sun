@@ -26,10 +26,6 @@ endef
 
 $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call addVar,$(v))))
 
-SOONG_CONFIG_NAMESPACES += sunGlobalVars
-SOONG_CONFIG_sunGlobalVars += \
-    additional_gralloc_10_usage_bits
-
 SOONG_CONFIG_NAMESPACES += sunQcomVars
 # Only create display_headers_namespace var if dealing with UM platforms to avoid breaking build for all other platforms
 ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
@@ -43,16 +39,17 @@ endif
 SOONG_CONFIG_sunQcomVars_uses_oplus_camera := $(TARGET_USES_OPLUS_CAMERA)
 SOONG_CONFIG_sunQcomVars_supports_ltpo := $(TARGET_SUPPORTS_LTPO)
 
-# Set default values
-TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS ?= 0
-
 # Soong value variables
-SOONG_CONFIG_sunGlobalVars_additional_gralloc_10_usage_bits := $(TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS)
 SOONG_CONFIG_sunQcomVars_uses_nothing_camera := $(TARGET_USES_NOTHING_CAMERA)
 
 # Camera
 ifneq ($(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED),)
     $(call soong_config_set,camera,override_format_from_reserved,$(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED))
+endif
+
+# Libui
+ifneq ($(TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS),)
+    $(call soong_config_set,libui,additional_gralloc_10_usage_bits,$(TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS))
 endif
 
 # Recovery
