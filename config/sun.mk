@@ -67,7 +67,7 @@ PRODUCT_PACKAGES += \
 
 # Theme Picker
 PRODUCT_PACKAGES += \
-    ParanoidThemePicker
+    ThemePicker
 
 # Online configs
 PRODUCT_COPY_FILES += \
