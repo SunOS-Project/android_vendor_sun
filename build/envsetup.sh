@@ -942,6 +942,39 @@ function clomerge()
     python3 $T/vendor/sun/build/tools/merge-clo.py $target_branch
 }
 
+function genkeys() {
+    T=$(gettop)
+    certs_dir="${ANDROID_BUILD_TOP}/certs"
+    if [ "$(ls "$certs_dir" 2>/dev/null | wc -l)" -ne 0 ]; then
+        read -p "Signing keys seem to be already there. Do you want to continue? (Y/N): " SIGN_RESP
+        case $SIGN_RESP in
+            [yY] )
+                find "$certs_dir" -mindepth 1 \
+                  -not -name '.git' -not -name '.gitignore' -not -path "$certs_dir/.git/*" \
+                  -exec rm -rf {} +
+                ;;
+            *)
+                return
+                ;;
+        esac
+    fi
+    echo -e "$red**********************************************"
+    echo    "   SIGNING KEYS NOT FOUND!, GENERATING THEM"
+    echo -e "**********************************************$nocol"
+
+    # Make directory
+    mkdir -p "$certs_dir"
+
+    # Subject details
+    subject="/O=Sun/OU=Sun/CN=Sun"
+
+    # Make keys
+    local keys=( releasekey devkey platform shared media networkstack nfc testkey sdk_sandbox bluetooth )
+    for key in "${keys[@]}"; do
+        ./development/tools/make_key "$certs_dir/$key" "$subject"
+    done
+}
+
 function generate_host_overrides() {
     export BUILD_USERNAME=android-build
     HEX=$(openssl rand -hex 8)

@@ -74,12 +74,7 @@ PRODUCT_COPY_FILES += \
      vendor/sun/prebuilt/common/etc/init/init.sun-configs.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.sun-configs.rc
 
 # Include Private keys
-ifeq ($(SUN_BUILD_TYPE),Official)
-  ifneq ("$(wildcard vendor/sun-priv/keys/keys.mk)","")
-    include vendor/sun-priv/keys/keys.mk
-  else
-    $(warning :Missing private keys file (vendor/sun-priv/keys/keys.mk). Ensure keys are properly set up for official build.)
-  endif
-else
-  -include vendor/sun-priv/keys/keys.mk
+ifneq ($(wildcard certs/releasekey.*),)
+$(call inherit-product, vendor/sun/config/sign.mk)
+include vendor/sun-priv/sun-priv.mk
 endif
