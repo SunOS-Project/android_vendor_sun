@@ -15,10 +15,6 @@ $(call inherit-product, vendor/google/pixel/config.mk)
 # Don't dexpreopt prebuilts. (For GMS).
 DONT_DEXPREOPT_PREBUILTS := true
 
-# Camera
-PRODUCT_PACKAGES += \
-    GoogleCameraGo
-
 # Contextual search
 PRODUCT_COPY_FILES += \
     vendor/sun/prebuilt/config/contextual_search.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/contextual_search.xml
