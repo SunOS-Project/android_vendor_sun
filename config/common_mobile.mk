@@ -7,6 +7,10 @@ PRODUCT_PACKAGES += \
     Glimpse \
     LatinIME
 
+# Overlays
+PRODUCT_PACKAGES += \
+    PixelLauncherNoGestureHintOverlay
+
 # Media
 PRODUCT_PRODUCT_PROPERTIES += \
     media.recorder.show_manufacturer_and_model=true
