@@ -208,7 +208,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 endif
 
 PRODUCT_PACKAGES += \
-    DocumentsUIOverlay \
     NetworkStackOverlay \
     PermissionControllerOverlay
 
