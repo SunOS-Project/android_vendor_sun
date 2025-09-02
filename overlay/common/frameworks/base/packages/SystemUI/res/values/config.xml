@@ -67,4 +67,7 @@
         <item>bottom_start:flashlight</item>
         <item>bottom_end:camera</item>
     </string-array>
+
+    <!-- Whether to show activity indicators in the status bar -->
+    <bool name="config_showActivity">false</bool>
 </resources>
