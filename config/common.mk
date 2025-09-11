@@ -39,6 +39,11 @@ endif
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
 endif
 
+# Aperture
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    persist.vendor.camera.privapp.list=org.lineageos.aperture \
+    vendor.camera.aux.packagelist=org.lineageos.aperture,org.lineageos.aperture.dev
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/lineage/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
