@@ -14,6 +14,7 @@ PRODUCT_PACKAGES += \
     SUNLauncherOverlay \
     FontDMSansOverlay \
     FontGoogleSansOverlay \
+    FontGoogleSansFlexOverlay \
     FontHarmonySansOverlay \
     FontInterOverlay \
     FontLinotteSourceOverlay \
