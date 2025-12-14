@@ -17,6 +17,12 @@ endif
 PRODUCT_PACKAGES += \
     bootanimation_pixel
 
+# Charger
+WITH_LINEAGE_CHARGER := false
+PRODUCT_PACKAGES += \
+    custom_charger_animation \
+    custom_charger_animation_vendor
+
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED ?= $(TARGET_SUPPORTS_64_BIT_APPS)
 
