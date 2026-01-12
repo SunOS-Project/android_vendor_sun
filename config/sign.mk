@@ -1,4 +1,0 @@
-SIGNING_KEY := certs/releasekey
-
-PRODUCT_DEFAULT_DEV_CERTIFICATE := $(SIGNING_KEY)
-PRODUCT_OTA_PUBLIC_KEYS := certs/releasekey.x509.pem
