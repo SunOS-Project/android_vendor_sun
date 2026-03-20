@@ -1016,3 +1016,5 @@ function build_kernel() {
     chmod -x "${target_kernel_dir}/"*
     echo "Kernel build output copied to ${target_kernel_dir}/"
 }
+
+rm -rf prebuilts/misc/protobuf_vendorcompat
