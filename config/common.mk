@@ -298,6 +298,11 @@ PRODUCT_PACKAGE_OVERLAYS += \
     vendor/lineage/overlay/common \
     vendor/lineage/overlay/no-rro
 
+ifeq ($(TARGET_IS_TABLET),true)
+PRODUCT_PACKAGE_OVERLAYS += \
+    vendor/lineage/overlay/tablet
+endif
+
 PRODUCT_PACKAGES += \
     FrameworkOverlayCustom \
     NetworkStackOverlay \
