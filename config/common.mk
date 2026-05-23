@@ -305,6 +305,7 @@ endif
 
 PRODUCT_PACKAGES += \
     FrameworkOverlayCustom \
+    GoogleDialerOverlayCustom \
     NetworkStackOverlay \
     PermissionControllerOverlay \
     SettingsOverlayCustom
